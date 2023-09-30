@@ -15,8 +15,6 @@ export async function POST(
             }
         })
 
-        // TODO: Uncomment the lines below to set limit for max 3 reset code requests
-
         const nonExpiredTokens = await prismadb.verificationToken.findMany({
             where: {
                 identifier: recipient,
@@ -83,7 +81,7 @@ export async function POST(
                                     To reset your password</p>
                                 <p style="font-size:14px;line-height:24px;margin:16px 0;color:rgb(0,0,0)">Hello ${user.name},</p>
                                 <p style="font-size:14px;line-height:24px;margin:16px 0;color:rgb(0,0,0)">
-                                    We have received a request to reset your password for your Course CMS account. To reset your password, please click on <strong>Reset password</strong> button or follow this 
+                                    We have received a request to reset your password for your PixieWear account. To reset your password, please click on <strong>Reset password</strong> button or follow this 
                                     <a target="_blank" style="color:rgb(37,99,235);text-decoration:none;text-decoration-line:none"
                                     href="${process.env.NEXTAUTH_URL}/reset-password/${jwtToken}">
                                     link
@@ -118,14 +116,14 @@ export async function POST(
                                     support team at ${process.env.MAIL_ACCOUNT}
                                 </p>
                                 <p style="font-size:14px;line-height:10px;margin-top:16px;color:rgb(0,0,0)">
-                                    Thank you for choosing Course CMS.
+                                    Thank you for choosing PixieWear.
                                 </p>
                                 <p style="font-size:14px;line-height:10px;color:rgb(0,0,0)">
                                 Best regards,
                                 </p>
                                 <p style="font-size:14px;line-height:10px;color:rgb(0,0,0)">
                                     <a target="_blank" style="color:rgb(37,99,235);text-decoration:none;text-decoration-line:none"
-                                    href=${process.env.NEXTAUTH_URL}>Course CMS
+                                    href=${process.env.BASE_URL}>PixieWear
                                     </a>
                                 </p>     
                             </td>
@@ -137,9 +135,9 @@ export async function POST(
                         `
 
         const options = {
-            from: `CCMS <${process.env.MAIL_ACCOUNT}>`,
+            from: `PixieWear <${process.env.MAIL_ACCOUNT}>`,
             to: recipient,
-            subject: 'CCMS Verification Email',
+            subject: 'PixieWear Account Verification',
             html: emailHtml,
         }
 
