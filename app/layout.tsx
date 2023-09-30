@@ -6,7 +6,7 @@ import AuthProvider from '@/providers/auth-provider'
 import { ThemeProvider } from '@/providers/theme-provider'
 import { Toaster } from '@/components/ui/toaster'
 
-const poppins = Poppins({ subsets: ['latin'], weight: "400" })
+const poppins = Poppins({ subsets: ['latin'], weight: "500" })
 
 export const metadata: Metadata = {
   title: 'PixieWear',
