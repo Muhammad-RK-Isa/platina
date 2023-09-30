@@ -69,7 +69,7 @@ const SignInPage = () => {
 
     return (
         <div className="w-[23rem] rounded-md border p-6">
-            <Heading title="Sign in" subtitle="to continue to Course-CMS" className="mb-6" />
+            <Heading title="Sign in" subtitle="to continue to PixieWear" className="mb-6" />
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(credentialLogin)} className="grid gap-4">
                     <FormField
