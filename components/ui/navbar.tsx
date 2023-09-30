@@ -120,7 +120,7 @@ const Navbar = () => {
                                 <ul className="p-6 grid gap-3 w-max grid-cols-2">
                                     {pages.map(({ url, label }) => (
                                         <li key={url} className="hover:text-muted-foreground transition-all text-sm">
-                                            <Link href={url}>{label}</Link>
+                                            <Link href={url} target="_blank">{label}</Link>
                                         </li>
                                     ))}
                                 </ul>
@@ -134,7 +134,7 @@ const Navbar = () => {
                                 <ul className="p-6 grid gap-3 w-max grid-cols-2">
                                     {pages.map(({ url, label }) => (
                                         <li key={url} className="hover:text-muted-foreground transition-all text-sm">
-                                            <Link href={url}>{label}</Link>
+                                            <Link href={url} target="_blank">{label}</Link>
                                         </li>
                                     ))}
                                 </ul>
