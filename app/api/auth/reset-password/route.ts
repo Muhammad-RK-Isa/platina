@@ -125,7 +125,7 @@ export async function POST(
                                     <a target="_blank" style="color:rgb(37,99,235);text-decoration:none;text-decoration-line:none"
                                     href=${process.env.BASE_URL}>PixieWear
                                     </a>
-                                </p>     
+                                </p>
                             </td>
                         </tr>
                     </table>
