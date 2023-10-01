@@ -3,7 +3,12 @@
 import * as React from "react"
 import Link from "next/link"
 import Image from "next/legacy/image"
-import { MenuIcon, ShoppingCartIcon, User2 } from "lucide-react"
+import { useSession } from "next-auth/react"
+import {
+    MenuIcon,
+    ShoppingCartIcon,
+    User2
+} from "lucide-react"
 
 import {
     Sheet,
@@ -17,49 +22,15 @@ import {
 import {
     NavigationMenu,
     NavigationMenuContent,
-    NavigationMenuIndicator,
     NavigationMenuItem,
-    NavigationMenuLink,
     NavigationMenuList,
     NavigationMenuTrigger,
-    NavigationMenuViewport,
+    NavigationMenuViewport
 } from "@/components/ui/navigation-menu"
 import { Badge } from "@/components/ui/badge"
-import { MobileSidebar } from "./mobile-sidebar"
-import { useSession } from "next-auth/react"
+import { MobileSidebar } from "@/components/ui/mobile-sidebar"
 import { cn } from "@/lib/utils"
-
-export interface PagesLinks {
-    url: string
-    label: string
-}
-
-const pages: PagesLinks[] = [
-    {
-        url: "/about",
-        label: "About Us"
-    },
-    {
-        url: "/contact",
-        label: "Contact Us"
-    },
-    {
-        url: "/contact",
-        label: "LinkedIn"
-    },
-    {
-        url: "https://www.facebook.com/pixiewearofficial",
-        label: "Facebook"
-    },
-    {
-        url: "/",
-        label: "Instagram"
-    },
-    {
-        url: "https://www.youtube.com/@PixieWear",
-        label: "YouTube"
-    },
-]
+import { navLinks } from "@/lib/nav-links"
 
 const Navbar = () => {
     const { data: session } = useSession()
@@ -81,8 +52,8 @@ const Navbar = () => {
     }, [scrollY])
 
     return (
-        <div className={cn(
-            "fixed top-0 p-4 md:p-5 lg:p-6 flex items-center justify-between w-full transition-all ease-in-out duration-500 z-50",
+        <nav className={cn(
+            "fixed top-0 p-6 lg:p-8 flex items-center justify-between w-full transition-all ease-in-out duration-500 z-50",
             isScrollingDown ? "-translate-y-full" : "translate-y-0",
             scrollY > 90 && "bg-white"
         )}>
@@ -94,13 +65,14 @@ const Navbar = () => {
                 </SheetTrigger>
                 <SheetContent side="left" className="p-0 max-w-[20rem] flex flex-col">
                     <SheetHeader className="p-4">
-                        <SheetTitle>
+                        <SheetTitle className="mr-auto">
                             <Link href="/">
                                 <Image
                                     src="/pw-logo.png"
                                     alt="logo"
-                                    height={30}
-                                    width={100}
+                                    objectFit="contain"
+                                    height={40}
+                                    width={150}
                                 />
                             </Link>
                         </SheetTitle>
@@ -128,48 +100,74 @@ const Navbar = () => {
                 </SheetContent>
             </Sheet>
             <div className="hidden md:flex items-center gap-x-4">
-                <Link href="/" className="text-sm">
-                    Home
-                </Link>
+                {navLinks.map(({ url, label, categories }) => {
+                    if (!categories) {
+                        return (
+                            <Link
+                                key={url}
+                                href={url}
+                                className="text-sm hover:text-muted-foreground transition-all"
+                            >
+                                {label}
+                            </Link>
+                        )
+                    }
+                })}
                 <NavigationMenu>
                     <NavigationMenuList>
-                        <NavigationMenuItem>
-                            <NavigationMenuTrigger className="bg-transparent">
-                                Products
-                            </NavigationMenuTrigger>
-                            <NavigationMenuContent>
-                                <ul className="p-6 grid gap-3 w-max grid-cols-2">
-                                    {pages.map(({ url, label }) => (
-                                        <li key={url} className="hover:text-muted-foreground transition-all text-sm">
-                                            <Link href={url} target="_blank">{label}</Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </NavigationMenuContent>
-                        </NavigationMenuItem>
-                        <NavigationMenuItem>
-                            <NavigationMenuTrigger className="bg-transparent">
-                                Pages
-                            </NavigationMenuTrigger>
-                            <NavigationMenuContent>
-                                <ul className="p-6 grid gap-3 w-max grid-cols-2">
-                                    {pages.map(({ url, label }) => (
-                                        <li key={url} className="hover:text-muted-foreground transition-all text-sm">
-                                            <Link href={url} target="_blank">{label}</Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </NavigationMenuContent>
-                        </NavigationMenuItem>
+                        {navLinks.map(({ url, label, categories }) => {
+                            if (categories) {
+                                return (
+                                    <NavigationMenuItem key={url}>
+                                        <NavigationMenuTrigger className="bg-transparent hover:bg-none text-sm hover:text-muted-foreground transition-all">
+                                            <Link href={url}>
+                                                {label}
+                                            </Link>
+                                        </NavigationMenuTrigger>
+                                        <NavigationMenuContent>
+                                            <ul className={cn(
+                                                "p-6 grid gap-x-10 gap-y-4 w-max",
+                                                `grid-cols-${(categories.length).toString()}`
+                                            )}>
+                                                {categories.map(({ url, label, subCategories }) => (
+                                                    <li
+                                                        key={url}
+                                                        className={cn(
+                                                            subCategories && "flex flex-col gap-4"
+                                                        )}
+                                                    >
+                                                        <Link
+                                                            href={url}
+                                                            className="hover:text-muted-foreground transition-all text-sm"
+                                                        >
+                                                            {label}
+                                                        </Link>
+                                                        {subCategories?.map(({ url, label }) => (
+                                                            <Link
+                                                                href={url}
+                                                                className="text-muted-foreground hover:text-foreground transition-all text-sm"
+                                                            >
+                                                                {label}
+                                                            </Link>
+                                                        ))}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </NavigationMenuContent>
+                                    </NavigationMenuItem>
+                                )
+                            }
+                        })}
                     </NavigationMenuList>
                 </NavigationMenu>
             </div>
-            <Link href="/" className="absolute right-1/2 translate-x-1/2">
+            <Link href="/" className="absolute  right-1/2 translate-x-1/2">
                 <Image
                     src="/pw-logo.png"
                     alt="logo"
-                    height={30}
-                    width={100}
+                    objectFit="contain"
+                    height={35}
+                    width={150}
                 />
             </Link>
             <Sheet>
@@ -190,7 +188,7 @@ const Navbar = () => {
                     </SheetHeader>
                 </SheetContent>
             </Sheet>
-        </div>
+        </nav>
     )
 }
 

@@ -9,7 +9,10 @@ import 'swiper/css/navigation';
 
 import './style.css'
 
-import { Pagination, Autoplay } from 'swiper/modules';
+import {
+    Pagination,
+    Autoplay,
+} from 'swiper/modules';
 import { PaginationOptions } from 'swiper/types';
 import Image from 'next/legacy/image';
 
@@ -26,7 +29,7 @@ export const Carousel = () => {
         <>
             <Swiper
                 slidesPerView={1}
-                spaceBetween={30}
+                spaceBetween={1}
                 loop={true}
                 autoplay={{
                     delay: 3000,
