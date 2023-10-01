@@ -43,7 +43,7 @@ export const MobileSidebar = () => {
                 }
 
                 return (
-                    <AccordionItem value={url} className="border-none">
+                    <AccordionItem key={url} value={url} className="border-none">
                         <AccordionTrigger
                             type="button"
                             onClick={onClick}

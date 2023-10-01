@@ -144,6 +144,7 @@ const Navbar = () => {
                                                         </Link>
                                                         {subCategories?.map(({ url, label }) => (
                                                             <Link
+                                                                key={url}
                                                                 href={url}
                                                                 className="text-muted-foreground hover:text-foreground transition-all text-sm"
                                                             >
