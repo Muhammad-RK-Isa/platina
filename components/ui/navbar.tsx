@@ -71,8 +71,8 @@ const Navbar = () => {
                         <MenuIcon className="h-6 w-6" />
                     </button>
                 </SheetTrigger>
-                <SheetContent side="left" className="max-w-[20rem] flex flex-col">
-                    <SheetHeader>
+                <SheetContent side="left" className="p-0 max-w-[20rem] flex flex-col">
+                    <SheetHeader className="p-4">
                         <SheetTitle>
                             <Link href="/">
                                 <Image
@@ -84,8 +84,8 @@ const Navbar = () => {
                             </Link>
                         </SheetTitle>
                     </SheetHeader>
-                    <MobileSidebar pages={pages} />
-                    <SheetFooter className="mt-auto flex flex-col sm:flex-col sm:space-x-0">
+                    <MobileSidebar />
+                    <SheetFooter className="mt-auto p-6 flex flex-col sm:flex-col sm:space-x-0">
                         {session ?
 
                             <Link href="/profile" className="border-t py-4 flex items-center uppercase hover:text-muted-foreground transition-all">
