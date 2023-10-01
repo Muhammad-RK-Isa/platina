@@ -1,3 +1,7 @@
+"use client"
+
+import { useEffect } from "react"
+
 import Navbar from "@/components/ui/navbar"
 
 const HomeLayout = ({
@@ -5,12 +9,18 @@ const HomeLayout = ({
 }: {
     children: React.ReactNode
 }) => {
+
+    useEffect(() => {
+        (async () => {
+            const LocomotiveScroll = (await (import("locomotive-scroll"))).default
+            const locomotiveScroll = new LocomotiveScroll()
+        })()
+    }, [])
+
     return (
-        <div>
+        <div data-scroll>
             <Navbar />
-            <div className="p-4 md:p-6">
-                {children}
-            </div>
+            {children}
         </div>
     )
 }

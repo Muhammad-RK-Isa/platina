@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import Image from "next/image"
+import Image from "next/legacy/image"
 import { MenuIcon, ShoppingCartIcon, User2 } from "lucide-react"
 
 import {
@@ -27,6 +27,7 @@ import {
 import { Badge } from "@/components/ui/badge"
 import { MobileSidebar } from "./mobile-sidebar"
 import { useSession } from "next-auth/react"
+import { cn } from "@/lib/utils"
 
 export interface PagesLinks {
     url: string
@@ -62,9 +63,29 @@ const pages: PagesLinks[] = [
 
 const Navbar = () => {
     const { data: session } = useSession()
+    const [scrollY, setScrollY] = React.useState<number>(0)
+    const [isScrollingDown, setIsScrollingDown] = React.useState<boolean>(false)
+
+    React.useEffect(() => {
+        const handleScroll = () => {
+            const newScrollY = window.scrollY;
+            setIsScrollingDown(newScrollY > scrollY);
+            setScrollY(newScrollY)
+        }
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        }
+    }, [scrollY])
 
     return (
-        <div className="relative border-b p-4 md:p-6 flex items-center justify-between w-full transition-all">
+        <div className={cn(
+            "fixed top-0 p-4 md:p-5 lg:p-6 flex items-center justify-between w-full transition-all ease-in-out duration-500 z-50",
+            isScrollingDown ? "-translate-y-full" : "translate-y-0",
+            scrollY > 90 && "bg-white"
+        )}>
             <Sheet>
                 <SheetTrigger asChild>
                     <button className="md:hidden hover:text-muted-foreground transition-all">
@@ -113,7 +134,7 @@ const Navbar = () => {
                 <NavigationMenu>
                     <NavigationMenuList>
                         <NavigationMenuItem>
-                            <NavigationMenuTrigger>
+                            <NavigationMenuTrigger className="bg-transparent">
                                 Products
                             </NavigationMenuTrigger>
                             <NavigationMenuContent>
@@ -127,7 +148,7 @@ const Navbar = () => {
                             </NavigationMenuContent>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
-                            <NavigationMenuTrigger>
+                            <NavigationMenuTrigger className="bg-transparent">
                                 Pages
                             </NavigationMenuTrigger>
                             <NavigationMenuContent>

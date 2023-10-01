@@ -1,6 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter, Poppins } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 
 import AuthProvider from '@/providers/auth-provider'
 import { ThemeProvider } from '@/providers/theme-provider'
