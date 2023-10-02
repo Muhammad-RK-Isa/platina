@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Autoplay } from 'swiper/modules'
 import { PaginationOptions } from 'swiper/types'
@@ -11,7 +11,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
 import './style.css'
-
+import { Skeleton } from '@/components/ui/skeleton'
 
 export const Carousel = () => {
 

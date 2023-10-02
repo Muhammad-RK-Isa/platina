@@ -1,18 +1,16 @@
 "use client"
 
-import { useState } from "react"
-import Image from "next/image"
-import { useRouter } from "next/navigation"
-import Link from "next/link"
-import { signIn } from "next-auth/react"
-import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import * as z from "zod"
 import axios, { AxiosResponse } from "axios"
+import { signIn } from "next-auth/react"
+import Image from "next/image"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { useState } from "react"
+import { useForm } from "react-hook-form"
+import * as z from "zod"
 
-import Heading from "@/components/ui/heading"
-import { Separator } from "@/components/ui/separator"
-import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
 import {
     Form,
     FormControl,
@@ -21,8 +19,10 @@ import {
     FormLabel,
     FormMessage
 } from "@/components/ui/form"
-import { Button } from "@/components/ui/button"
-import { useToast } from "@/components/ui/use-toast"
+import Heading from "@/components/ui/heading"
+import { Input } from "@/components/ui/input"
+import { Separator } from "@/components/ui/separator"
+import { useToast } from "@/hooks/use-toast"
 import { SignUpFormFields } from "@/types/auth-types"
 
 const formSchema = z

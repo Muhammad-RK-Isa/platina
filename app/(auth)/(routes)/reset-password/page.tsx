@@ -19,7 +19,7 @@ import {
     FormLabel,
     FormMessage
 } from "@/components/ui/form"
-import BackButton from "@/components/ui/back-button"
+import BackButton from "@/components/back-button"
 
 const formSchema = z.object({
     email: z.string().email(),

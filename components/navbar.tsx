@@ -4,9 +4,9 @@ import * as React from "react"
 import Link from "next/link"
 import Image from "next/image"
 
-import { NavSidebar } from "@/components/ui/nav-sidebar"
-import { ShoppingCartSidebar } from "@/components/ui/shopping-cart-sidebar"
-import { NavLinks } from "@/components/ui/nav-links"
+import { NavSidebar } from "@/components/nav-sidebar"
+import { ShoppingCartSidebar } from "@/components/shopping-cart-sidebar"
+import { NavLinks } from "@/components/nav-links"
 import { cn } from "@/lib/utils"
 
 const Navbar = () => {

@@ -5,18 +5,14 @@
 
 body::-webkit-scrollbar {
   width: 0;
-  /* Hide the scrollbar */
 }
 
-/* Optional: Customize scrollbar track and thumb */
 body::-webkit-scrollbar-track {
-  background-color: transparent;
-  /* Change to your desired color */
+  background-color: var(--primary);
 }
 
 body::-webkit-scrollbar-thumb {
   background-color: transparent;
-  /* Change to your desired color */
 }
 
 @layer base {

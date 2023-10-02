@@ -57,7 +57,7 @@ export const NavSidebar = () => {
                         </Link>
                     </SheetTitle>
                 </SheetHeader>
-                <Accordion type="single" collapsible className="w-full">
+                <Accordion type="single" collapsible className="overflow-y-auto">
                     {navLinks.map(({ url, label, categories }) => {
                         const isActive =
                             (pathname === "/" && url === "/") ||

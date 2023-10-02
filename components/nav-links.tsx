@@ -8,7 +8,7 @@ import {
     NavigationMenuTrigger,
     NavigationMenuIndicator,
     navigationMenuTriggerStyle
-} from "@/components/ui/navigation-menu"
+} from "@/components/navigation-menu"
 import { cn } from "@/lib/utils"
 import { navLinks } from "@/lib/nav-links"
 
