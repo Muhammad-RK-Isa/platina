@@ -25,15 +25,15 @@ export const navLinks: NavLink[] = [
         label: "Pages",
         categories: [
             {
-                url: "/about",
+                url: "/pages/about",
                 label: "About Us"
             },
             {
-                url: "/contact",
+                url: "/pages/contact",
                 label: "Contact Us"
             },
             {
-                url: "/contact",
+                url: "www.linkedin.com",
                 label: "LinkedIn"
             },
             {
@@ -41,7 +41,7 @@ export const navLinks: NavLink[] = [
                 label: "Facebook"
             },
             {
-                url: "/",
+                url: "www.instagram.com",
                 label: "Instagram"
             },
             {

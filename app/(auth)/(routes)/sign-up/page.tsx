@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import axios, { AxiosResponse } from "axios"
 import { signIn } from "next-auth/react"
-import Image from "next/image"
+import Image from "next/legacy/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
@@ -161,13 +161,12 @@ const SignUpPage = () => {
                 <div className="px-2 text-gray-600">or</div>
                 <Separator className="flex-1" />
             </div>
-            <Button disabled={loading} variant="outline" className="w-full" onClick={signInWithGoogle}>
+            <Button disabled={loading} variant="outline" className="w-full gap-x-1" onClick={signInWithGoogle}>
                 <Image
                     width={16}
                     height={16}
-                    src="./google.svg"
+                    src="/google.svg"
                     alt="google icon"
-                    className="mr-2"
                 />
                 Continue with Google
             </Button>

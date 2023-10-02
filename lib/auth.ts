@@ -91,10 +91,11 @@ export const authOptions: NextAuthOptions = {
                     }
                 })
             return true
-        }
+        },
     },
     pages: {
         signIn: "/sign-in",
+        newUser: "/sign-up"
     },
     debug: process.env.NODE_ENV === "development"
 }

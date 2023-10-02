@@ -53,6 +53,7 @@ export const NavSidebar = () => {
                                 objectFit="contain"
                                 height={40}
                                 width={150}
+                                priority
                             />
                         </Link>
                     </SheetTitle>

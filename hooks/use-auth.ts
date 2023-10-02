@@ -3,7 +3,7 @@ import { getServerSession } from "next-auth"
 
 import { authOptions } from "@/lib/auth"
 
-const useAuth = async (
+export const useAuth = async (
     redirectURL?: string,
     callbackURL?: string
 ) => {
@@ -16,5 +16,3 @@ const useAuth = async (
 
     return { user: session?.user }
 }
-
-export default useAuth

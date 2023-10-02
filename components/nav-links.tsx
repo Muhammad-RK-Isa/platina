@@ -6,9 +6,8 @@ import {
     NavigationMenuItem,
     NavigationMenuList,
     NavigationMenuTrigger,
-    NavigationMenuIndicator,
-    navigationMenuTriggerStyle
-} from "@/components/navigation-menu"
+    NavigationMenuIndicator
+} from "@/components/ui/navigation-menu"
 import { cn } from "@/lib/utils"
 import { navLinks } from "@/lib/nav-links"
 
@@ -34,11 +33,7 @@ export const NavLinks = () => {
                         if (categories) {
                             return (
                                 <NavigationMenuItem key={url} className="bg-transparent hover:bg-transparent">
-                                    <NavigationMenuTrigger
-                                        className={navigationMenuTriggerStyle({
-                                            className: "bg-transparent hover:bg-transparent hover:text-muted-foreground transition-all text-sm"
-                                        })}
-                                    >
+                                    <NavigationMenuTrigger>
                                         <Link href={url}>
                                             {label}
                                         </Link>

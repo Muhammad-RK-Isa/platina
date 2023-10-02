@@ -1,3 +1,5 @@
+import Navbar from "@/components/navbar"
+
 const PagesLayout = ({
     children
 }: {
@@ -5,7 +7,8 @@ const PagesLayout = ({
 }) => {
     return (
         <div>
-            
+            <Navbar/>
+            {children}
         </div>
     )
 }

@@ -1,15 +1,23 @@
 "use client"
 
 import * as React from "react"
+import { usePathname } from "next/navigation"
+import { useSession } from "next-auth/react"
+import Image from "next/legacy/image"
 import Link from "next/link"
-import Image from "next/image"
 
+import { NavLinks } from "@/components/nav-links"
 import { NavSidebar } from "@/components/nav-sidebar"
 import { ShoppingCartSidebar } from "@/components/shopping-cart-sidebar"
-import { NavLinks } from "@/components/nav-links"
+import { UserButton } from "@/components/user-button"
 import { cn } from "@/lib/utils"
+import { User2Icon } from "lucide-react"
 
 const Navbar = () => {
+    const { data: session } = useSession()
+    const pathname = usePathname()
+    const isHomePage = pathname === "/"
+
     const [scrollY, setScrollY] = React.useState<number>(0)
     const [isScrollingDown, setIsScrollingDown] = React.useState<boolean>(false)
 
@@ -29,9 +37,10 @@ const Navbar = () => {
 
     return (
         <nav className={cn(
-            "fixed top-0 p-6 lg:p-8 flex items-center justify-between w-full transition-all ease-in-out duration-500 z-50",
+            "top-0 p-6 lg:p-8 flex items-center justify-between w-full transition-all ease-in-out duration-500 z-50",
             isScrollingDown ? "-translate-y-full" : "translate-y-0",
-            scrollY > 90 && "bg-white"
+            (scrollY > 90 && isHomePage) && "bg-white",
+            isHomePage ? "fixed" : "sticky border-b bg-white"
         )}>
             <NavSidebar />
             <NavLinks />
@@ -42,9 +51,19 @@ const Navbar = () => {
                     objectFit="contain"
                     height={35}
                     width={150}
+                    priority
                 />
             </Link>
-            <ShoppingCartSidebar />
+            <div className="flex items-center gap-4">
+                {session ?
+                    <UserButton />
+                    :
+                    <Link href="/sign-in">
+                        <User2Icon />
+                    </Link>
+                }
+                <ShoppingCartSidebar />
+            </div>
         </nav>
     )
 }

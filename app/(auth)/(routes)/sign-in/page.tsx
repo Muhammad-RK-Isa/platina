@@ -1,18 +1,15 @@
 "use client"
 
-import { useState } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { useSearchParams, useRouter } from "next/navigation"
-import { signIn } from "next-auth/react"
-import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { EyeIcon, EyeOffIcon } from "lucide-react"
+import { signIn } from "next-auth/react"
+import Image from "next/legacy/image"
+import Link from "next/link"
+import { useRouter, useSearchParams } from "next/navigation"
+import { useState } from "react"
+import { useForm } from "react-hook-form"
 
-import { SignInFormFields, signInFormSchema } from "@/types/auth-types"
-import Heading from "@/components/ui/heading"
-import { Separator } from "@/components/ui/separator"
-import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
 import {
     Form,
     FormControl,
@@ -21,7 +18,10 @@ import {
     FormLabel,
     FormMessage
 } from "@/components/ui/form"
-import { Button } from "@/components/ui/button"
+import Heading from "@/components/ui/heading"
+import { Input } from "@/components/ui/input"
+import { Separator } from "@/components/ui/separator"
+import { SignInFormFields, signInFormSchema } from "@/types/auth-types"
 
 const SignInPage = () => {
     const [loading, setLoading] = useState(false)
@@ -132,13 +132,12 @@ const SignInPage = () => {
                 <div className="px-2 text-gray-600">or</div>
                 <Separator className="flex-1" />
             </div>
-            <Button disabled={loading} variant="outline" className="w-full" onClick={() => signIn("google")}>
+            <Button disabled={loading} variant="outline" className="w-full gap-x-1" onClick={() => signIn("google")}>
                 <Image
                     width={16}
                     height={16}
-                    src="./google.svg"
+                    src="/google.svg"
                     alt="google icon"
-                    className="mr-2"
                 />
                 Continue with Google
             </Button>

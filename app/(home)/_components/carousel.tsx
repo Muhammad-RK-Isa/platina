@@ -11,7 +11,6 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
 import './style.css'
-import { Skeleton } from '@/components/ui/skeleton'
 
 export const Carousel = () => {
 
@@ -41,6 +40,7 @@ export const Carousel = () => {
                     alt='carousel image'
                     layout='fill'
                     objectFit='cover'
+                    priority
                     className='h-screen w-screen'
                 />
             </SwiperSlide>
@@ -50,6 +50,7 @@ export const Carousel = () => {
                     alt='carousel image'
                     layout='fill'
                     objectFit='cover'
+                    priority
                     className='h-screen w-screen'
                 />
             </SwiperSlide>
@@ -59,6 +60,7 @@ export const Carousel = () => {
                     alt='carousel image'
                     layout='fill'
                     objectFit='cover'
+                    priority
                     className='h-screen w-screen'
                 />
             </SwiperSlide>
