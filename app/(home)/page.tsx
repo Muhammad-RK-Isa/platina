@@ -4,7 +4,7 @@ import { Carousel } from "./_components/carousel"
 const HomePage = () => {
   return (
     <>
-      <Carousel />
+      <Carousel/>
       <div className="p-4 md:p-6">
         Hello from PixieWear.
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit sunt ut similique quas delectus voluptatibus eligendi ratione et, necessitatibus, provident enim fugiat iure eveniet sint eaque, est consequatur facere unde?</p>
