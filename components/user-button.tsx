@@ -23,7 +23,7 @@ export const UserButton = ({
     return (
         <Popover>
             <PopoverTrigger className={cn(className)} asChild>
-                <User2Icon className="h-6 w-6 hover:text-muted-foreground transition-all" />
+                <User2Icon className="h-5 w-5 hover:text-muted-foreground transition-all" />
             </PopoverTrigger>
             <PopoverContent className="p-4 w-max" align="end">
                 <div className="flex flex-col">

@@ -6,12 +6,13 @@ import { useSession } from "next-auth/react"
 import Image from "next/legacy/image"
 import Link from "next/link"
 
-import { NavLinks } from "@/components/nav-links"
-import { NavSidebar } from "@/components/nav-sidebar"
-import { ShoppingCartSidebar } from "@/components/shopping-cart-sidebar"
+import { NavLinks } from "@/components/navbar/nav-links"
+import { NavSidebar } from "@/components/navbar/nav-sidebar"
+import { ShoppingCartSidebar } from "@/components/navbar/shopping-cart-sidebar"
 import { UserButton } from "@/components/user-button"
 import { cn } from "@/lib/utils"
 import { User2Icon } from "lucide-react"
+import { SearchModal } from "./search-modal"
 
 const Navbar = () => {
     const { data: session } = useSession()
@@ -49,19 +50,22 @@ const Navbar = () => {
                     src="/pw-logo.png"
                     alt="logo"
                     objectFit="contain"
-                    height={35}
-                    width={150}
+                    height={30}
+                    width={120}
                     priority
                 />
             </Link>
             <div className="flex items-center gap-4">
-                {session ?
-                    <UserButton />
-                    :
-                    <Link href="/sign-in">
-                        <User2Icon />
-                    </Link>
-                }
+                <SearchModal />
+                <div className="hidden md:block">
+                    {session ?
+                        <UserButton />
+                        :
+                        <Link href="/sign-in">
+                            <User2Icon />
+                        </Link>
+                    }
+                </div>
                 <ShoppingCartSidebar />
             </div>
         </nav>

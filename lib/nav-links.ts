@@ -5,6 +5,7 @@ export interface SubCategory {
 
 export interface Category {
     url: string
+    target: string
     label: string
     subCategories?: SubCategory[]
 }
@@ -26,26 +27,32 @@ export const navLinks: NavLink[] = [
         categories: [
             {
                 url: "/pages/about",
+                target: "_self",
                 label: "About Us"
             },
             {
                 url: "/pages/contact",
+                target: "_self",
                 label: "Contact Us"
             },
             {
-                url: "www.linkedin.com",
+                url: "https://www.linkedin.com",
+                target: "_self",
                 label: "LinkedIn"
             },
             {
                 url: "https://www.facebook.com/pixiewearofficial",
+                target: "_blank",
                 label: "Facebook"
             },
             {
-                url: "www.instagram.com",
+                url: "https://www.instagram.com",
+                target: "_blank",
                 label: "Instagram"
             },
             {
                 url: "https://www.youtube.com/@PixieWear",
+                target: "_blank",
                 label: "YouTube"
             },
         ]
@@ -56,6 +63,7 @@ export const navLinks: NavLink[] = [
         categories: [
             {
                 url: "/products/men",
+                target: "_self",
                 label: "Men",
                 subCategories: [
                     {
@@ -78,6 +86,7 @@ export const navLinks: NavLink[] = [
             },
             {
                 url: "/products/men",
+                target: "_self",
                 label: "Women",
                 subCategories: [
                     {
@@ -100,6 +109,7 @@ export const navLinks: NavLink[] = [
             },
             {
                 url: "/products/kids",
+                target: "_self",
                 label: "Kids",
                 subCategories: [
                     {

@@ -33,11 +33,10 @@ export const NavLinks = () => {
                         if (categories) {
                             return (
                                 <NavigationMenuItem key={url} className="bg-transparent hover:bg-transparent">
-                                    <NavigationMenuTrigger>
+                                    <NavigationMenuTrigger className="hover:text-muted-foreground transition-all" iconHidden>
                                         <Link href={url}>
                                             {label}
                                         </Link>
-
                                     </NavigationMenuTrigger>
                                     <NavigationMenuContent>
                                         <NavigationMenuIndicator />
@@ -56,7 +55,7 @@ export const NavLinks = () => {
                                                 >
                                                     <Link
                                                         href={url}
-                                                        className="hover:text-muted-foreground transition-all text-sm"
+                                                        className="text-sm hover:text-muted-foreground transition-all"
                                                     >
                                                         {label}
                                                     </Link>
@@ -64,7 +63,7 @@ export const NavLinks = () => {
                                                         <Link
                                                             key={url}
                                                             href={url}
-                                                            className="text-muted-foreground hover:text-foreground transition-all text-sm"
+                                                            className="text-sm text-muted-foreground hover:text-foreground transition-all"
                                                         >
                                                             {label}
                                                         </Link>

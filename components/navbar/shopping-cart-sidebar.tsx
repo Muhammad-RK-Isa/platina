@@ -17,9 +17,9 @@ export const ShoppingCartSidebar = () => {
     return (
         <Sheet>
             <SheetTrigger asChild>
-                <button className="inline-flex items-center gap-1 hover:text-muted-foreground transition-all">
-                    <ShoppingCartIcon className="h-6 w-6" />
-                    <Badge>0</Badge>
+                <button className="inline-flex items-center gap-1 group">
+                    <ShoppingCartIcon className="h-5 w-5 group-hover:text-muted-foreground transition-all" />
+                    <div className="p-1 h-5 w-max min-w-[1.25rem] grid place-content-center text-xs bg-primary text-accent rounded-full group-hover:bg-primary/50 transition-all">0</div>
                 </button>
             </SheetTrigger>
             <SheetContent side="right" className="max-w-[20rem]">

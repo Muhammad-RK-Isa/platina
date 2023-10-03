@@ -6,7 +6,8 @@ import { usePathname } from "next/navigation"
 import {
     MenuIcon,
     ShoppingCartIcon,
-    User2
+    User2,
+    X
 } from "lucide-react"
 
 import {
@@ -15,7 +16,8 @@ import {
     SheetContent,
     SheetHeader,
     SheetTitle,
-    SheetFooter
+    SheetFooter,
+    SheetClose
 } from "@/components/ui/sheet"
 import {
     Accordion,
@@ -43,20 +45,23 @@ export const NavSidebar = () => {
                     <MenuIcon className="h-6 w-6" />
                 </button>
             </SheetTrigger>
-            <SheetContent side="left" className="p-0 max-w-[20rem] flex flex-col">
-                <SheetHeader className="p-4">
+            <SheetContent showCloseButton={false} side="left" className="p-0 max-w-[20rem] flex flex-col">
+                <SheetHeader className="p-4 flex flex-row items-center">
                     <SheetTitle className="mr-auto">
-                        <Link href="/">
+                        <Link href="/" className="h-max flex">
                             <Image
                                 src="/pw-logo.png"
                                 alt="logo"
                                 objectFit="contain"
                                 height={40}
-                                width={150}
+                                width={120}
                                 priority
                             />
                         </Link>
                     </SheetTitle>
+                    <SheetClose>
+                        <X className="h-5 w-5 text-muted-foreground transition-all hover:text-foreground" />
+                    </SheetClose>
                 </SheetHeader>
                 <Accordion type="single" collapsible className="overflow-y-auto">
                     {navLinks.map(({ url, label, categories }) => {
@@ -99,9 +104,13 @@ export const NavSidebar = () => {
                                 </AccordionTrigger>
                                 <AccordionContent className="pl-16">
                                     <ul className="py-2 flex flex-col gap-4">
-                                        {categories?.map(({ url, label, subCategories }) => (
+                                        {categories?.map(({ url, target, label, subCategories }) => (
                                             <li key={url}>
-                                                <Link href={url} className="hover:text-foreground transition-all">
+                                                <Link
+                                                    href={url}
+                                                    target={target}
+                                                    className="hover:text-foreground transition-all"
+                                                >
                                                     {label}
                                                 </Link>
                                                 {subCategories &&
