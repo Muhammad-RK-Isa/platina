@@ -74,6 +74,7 @@ export const SearchModal = () => {
     })
 
     const search = (values: z.infer<typeof formSchema>) => {
+        if (!values.search) return null
         console.log(values)
     }
 
@@ -86,7 +87,7 @@ export const SearchModal = () => {
                 <DialogHeader className="w-full flex flex-row items-center justify-between">
                     <DialogTitle className="text-left text-2xl font-light">Search</DialogTitle>
                     <DialogClose>
-                        <X className="h-6 w-6 font-light" />
+                        <X className="h-6 w-6 font-light transition-all hover:text-muted-foreground" />
                     </DialogClose>
                 </DialogHeader>
                 <Form {...form}>
@@ -99,19 +100,27 @@ export const SearchModal = () => {
                                     <FormControl>
                                         <RadioGroup
                                             onValueChange={field.onChange}
+                                            defaultValue={field.value}
                                             className="flex items-center justify-center gap-x-4 md:gap-x-6"
                                         >
                                             {filters.map(({ value, label }) => (
                                                 <div key={value} className="flex items-center space-x-2">
-                                                    <RadioGroupItem
-                                                        id={"filter-radio-" + value}
-                                                        value={value}
-                                                        className="hidden"
-                                                    />
+                                                    <FormControl>
+                                                        <RadioGroupItem
+                                                            id={"filter-radio-" + value}
+                                                            value={value}
+                                                            onClick={(e) => {
+                                                                e.preventDefault()
+                                                                form.setValue("filter", value)
+                                                                search({ search: form.getValues("search"), filter: form.getValues("filter") })
+                                                            }}
+                                                            className="hidden"
+                                                        />
+                                                    </FormControl>
                                                     <FormLabel
                                                         htmlFor={"filter-radio-" + value}
                                                         className={cn(
-                                                            "text-base md:text-xl lg:cursor-pointer transition-all duration-500 hover:text-foreground",
+                                                            "text-base md:text-xl lg:cursor-pointer transition-all hover:text-foreground",
                                                             form.getValues("filter") !== value && "text-muted-foreground"
                                                         )}
                                                     >
@@ -130,7 +139,7 @@ export const SearchModal = () => {
                                 control={form.control}
                                 render={({ field }) => (
                                     <FormControl>
-                                        <div className="border-b px-2 md:w-[60vw] flex items-center gap-x-4 transition-all duration-500 group hover:border-b-foreground">
+                                        <div className="border-b px-2 md:w-[60vw] flex items-center gap-x-4 transition-all group hover:border-b-foreground">
                                             <SearchIcon className="h-6 w-6 text-muted-foreground transition-all group-hover:text-foreground" />
                                             <input
                                                 {...field}

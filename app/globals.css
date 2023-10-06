@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body::-webkit-scrollbar {
   width: 0;
 }
@@ -13,6 +12,16 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
   background-color: transparent;
+}
+
+::selection {
+  background-color: #836262;
+  color: white;
+}
+
+::-moz-selection {
+  background-color: #836262;
+  color: white;
 }
 
 @layer base {
