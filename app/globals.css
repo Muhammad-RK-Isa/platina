@@ -27,25 +27,25 @@ body::-webkit-scrollbar-thumb {
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --foreground: 0 0% 13%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 0 0% 13%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover-foreground: 0 0% 13%;
 
-    --primary: 0 15% 45%;
-    --primary-foreground: 0 0% 90%;
+    --primary: 20 47% 74%;
+    --primary-foreground: 0 0% 13%;
 
-    --secondary: 0 0% 88%;
-    --secondary-foreground: 0 0% 3%;
+    --secondary: 50 25% 95%;
+    --secondary-foreground: 0 0% 13%;
 
     --muted: 0 0% 20%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --accent: 17 43% 45%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -58,26 +58,26 @@ body::-webkit-scrollbar-thumb {
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 87%;
 
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 87%;
 
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 87%;
 
-    --primary: 0 15% 55%;
-    --primary-foreground: 0 0% 10%;
+    --primary: 20 47% 26%;
+    --primary-foreground: 0 0% 87%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 97%;
+    --secondary: 50 23% 5%;
+    --secondary-foreground: 0 0% 87%;
 
     --muted: 0 0% 80%;
-    --muted-foreground: 0 0% 97%;
+    --muted-foreground: 0 0% 87%;
 
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 17 43% 55%;
+    --accent-foreground: 0 0% 0%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;

@@ -9,6 +9,8 @@ import {
     User2,
     X
 } from "lucide-react"
+import Logo from "@/public/Platina-Logo.avif"
+
 
 import {
     Sheet,
@@ -50,7 +52,7 @@ export const NavSidebar = () => {
                     <SheetTitle className="mr-auto">
                         <Link href="/" className="h-max flex">
                             <Image
-                                src="/pw-logo.png"
+                                src={Logo}
                                 alt="logo"
                                 objectFit="contain"
                                 height={40}
@@ -145,11 +147,6 @@ export const NavSidebar = () => {
                             SIGN IN
                         </Link>
                     }
-                    <Link href="/cart" className="border-t py-4 flex items-center uppercase hover:text-muted-foreground transition-all">
-                        <ShoppingCartIcon className="h-6 w-6 mr-2" />
-                        SHOPPING CART
-                        <Badge className="ml-auto">0</Badge>
-                    </Link>
                 </SheetFooter>
             </SheetContent>
         </Sheet>

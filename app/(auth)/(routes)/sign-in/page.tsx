@@ -69,7 +69,7 @@ const SignInPage = () => {
 
     return (
         <div className="w-[23rem] rounded-md border p-6">
-            <Heading title="Sign in" subtitle="to continue to PixieWear" className="mb-6" />
+            <Heading title="Sign in" subtitle="to continue to Platina" className="mb-6" />
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(credentialLogin)} className="grid gap-4">
                     <FormField
@@ -125,7 +125,6 @@ const SignInPage = () => {
                     <span className="text-muted-foreground">No account?</span>
                     <Link href="/sign-up" className="font-semibold hover:underline underline-offset-2">Sign up</Link>
                 </div>
-                <Link href={`/reset-password?email=${form.getValues("email")}`} className="font-semibold hover:underline underline-offset-2">Reset Password</Link>
             </div>
             <div className="my-6 flex items-center">
                 <Separator className="flex-1" />

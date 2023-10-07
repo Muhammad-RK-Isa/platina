@@ -5,10 +5,10 @@ import { usePathname } from "next/navigation"
 import { useSession } from "next-auth/react"
 import Image from "next/legacy/image"
 import Link from "next/link"
+import Logo from "@/public/Platina-Logo.avif"
 
 import { NavLinks } from "@/components/navbar/nav-links"
 import { NavSidebar } from "@/components/navbar/nav-sidebar"
-import { ShoppingCartSidebar } from "@/components/navbar/shopping-cart-sidebar"
 import { UserButton } from "@/components/user-button"
 import { cn } from "@/lib/utils"
 import { User2Icon } from "lucide-react"
@@ -47,7 +47,7 @@ const Navbar = () => {
             <NavLinks />
             <Link href="/" className="absolute  right-1/2 translate-x-1/2">
                 <Image
-                    src="/pw-logo.png"
+                    src={Logo}
                     alt="logo"
                     objectFit="contain"
                     height={30}
@@ -57,16 +57,13 @@ const Navbar = () => {
             </Link>
             <div className="flex items-center gap-4">
                 <SearchModal />
-                <div className="hidden md:block">
-                    {session ?
-                        <UserButton />
-                        :
-                        <Link href="/sign-in">
-                            <User2Icon />
-                        </Link>
-                    }
-                </div>
-                <ShoppingCartSidebar />
+                {session ?
+                    <UserButton />
+                    :
+                    <Link href="/sign-in">
+                        <User2Icon />
+                    </Link>
+                }
             </div>
         </nav>
     )

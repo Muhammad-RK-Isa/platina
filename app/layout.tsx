@@ -9,7 +9,7 @@ import { Toaster } from '@/components/ui/toaster'
 const poppins = Poppins({ subsets: ['latin'], weight: "500" })
 
 export const metadata: Metadata = {
-  title: 'PixieWear',
+  title: 'Platina',
   description: 'Developed by Muhammad Isa',
 }
 
