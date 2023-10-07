@@ -5,11 +5,10 @@ import Image from "next/legacy/image"
 import { usePathname } from "next/navigation"
 import {
     MenuIcon,
-    ShoppingCartIcon,
     User2,
     X
 } from "lucide-react"
-import Logo from "@/public/Platina-Logo.avif"
+import Logo from "@/public/platina-logo.avif"
 
 
 import {
@@ -27,7 +26,6 @@ import {
     AccordionItem,
     AccordionTrigger
 } from "@/components/ui/accordion"
-import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
 import { navLinks } from "@/lib/nav-links"
 import { useSession } from "next-auth/react"

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation"
 import { useSession } from "next-auth/react"
 import Image from "next/legacy/image"
 import Link from "next/link"
-import Logo from "@/public/Platina-Logo.avif"
+import Logo from "@/public/platina-logo.avif"
 
 import { NavLinks } from "@/components/navbar/nav-links"
 import { NavSidebar } from "@/components/navbar/nav-sidebar"
