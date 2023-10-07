@@ -8,9 +8,9 @@ import { PaginationOptions } from 'swiper/types'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
-import 'swiper/css/navigation'
 
 import './style.css'
+import { CarouselOverlay } from './carousel-overlay'
 
 export const Carousel = () => {
 
@@ -24,7 +24,7 @@ export const Carousel = () => {
     return (
         <Swiper
             slidesPerView={1}
-            spaceBetween={1}
+            spaceBetween={0}
             loop={true}
             autoplay={{
                 delay: 3000,
@@ -32,36 +32,57 @@ export const Carousel = () => {
             }}
             pagination={pagination}
             modules={[Pagination, Autoplay]}
-            className="h-[100vh]"
+            className="h-[82vh]"
         >
-            <SwiperSlide>
+            <SwiperSlide className='relative cursor-grab'>
+                <div className='text-secondary z-10 absolute right-24 top-1/2 -translate-y-1/2'>
+                    <CarouselOverlay
+                        heading='special occasion jewelry'
+                        title='New design wedding rings'
+                        subtitle='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, iusto?'
+                        url='/'
+                        blogUrl='/'
+                    />
+                </div>
                 <Image
-                    src="/product-images/S1.jpg"
+                    src="/slider-1L.jpg"
                     alt='carousel image'
                     layout='fill'
                     objectFit='cover'
-                    priority
-                    className='h-screen w-screen'
                 />
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide className='relative cursor-grab'>
+                <div className='text-secondary z-10 absolute right-24 top-1/2 -translate-y-1/2'>
+                    <CarouselOverlay
+                        heading='Trendy Design'
+                        title='fashionable disigning jewelry'
+                        subtitle='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, iusto?'
+                        url='/'
+                        blogUrl='/'
+                    />
+                </div>
                 <Image
-                    src="/product-images/S2.jpg"
+                    src="/slider-2L.jpg"
                     alt='carousel image'
                     layout='fill'
                     objectFit='cover'
-                    priority
-                    className='h-screen w-screen'
                 />
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide className='relative cursor-grab'>
+                <div className='text-secondary z-10 absolute left-24 top-1/2 -translate-y-1/2'>
+                    <CarouselOverlay
+                        heading='Classy Design'
+                        title='amazing jewelry collection'
+                        subtitle='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, iusto?'
+                        url='/'
+                        blogUrl='/'
+                    />
+                </div>
                 <Image
-                    src="/product-images/S3.jpg"
+                    src="/slider-3L.jpg"
                     alt='carousel image'
                     layout='fill'
                     objectFit='cover'
-                    priority
-                    className='h-screen w-screen'
                 />
             </SwiperSlide>
         </Swiper>

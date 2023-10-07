@@ -1,0 +1,4 @@
+.swiper-slide {
+    display: grid;
+    place-content: center;
+}

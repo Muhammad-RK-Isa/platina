@@ -20,7 +20,7 @@ export const NavLinks = () => {
                         <Link
                             key={url}
                             href={url}
-                            className="text-sm hover:text-muted-foreground transition-all"
+                            className="text-sm hover:text-secondary transition-all"
                         >
                             {label}
                         </Link>
@@ -33,7 +33,7 @@ export const NavLinks = () => {
                         if (categories) {
                             return (
                                 <NavigationMenuItem key={url} className="bg-transparent hover:bg-transparent">
-                                    <NavigationMenuTrigger className="hover:text-muted-foreground transition-all" iconHidden>
+                                    <NavigationMenuTrigger className="hover:text-secondary transition-all" iconHidden>
                                         <Link href={url}>
                                             {label}
                                         </Link>
@@ -55,7 +55,7 @@ export const NavLinks = () => {
                                                 >
                                                     <Link
                                                         href={url}
-                                                        className="text-sm hover:text-muted-foreground transition-all"
+                                                        className="text-sm hover:text-secondary transition-all"
                                                     >
                                                         {label}
                                                     </Link>

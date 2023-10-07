@@ -81,7 +81,7 @@ export const SearchModal = () => {
     return (
         <Dialog>
             <DialogTrigger>
-                <SearchIcon className="h-5 w-5 hover:text-muted-foreground transition-all cursor-pointer" />
+                <SearchIcon className="h-5 w-5 hover:text-secondary transition-all cursor-pointer" />
             </DialogTrigger>
             <DialogContent showCloseButton={false} className="h-full flex flex-col">
                 <DialogHeader className="w-full flex flex-row items-center justify-between">

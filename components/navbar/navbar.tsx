@@ -38,10 +38,10 @@ const Navbar = () => {
 
     return (
         <nav className={cn(
-            "top-0 p-6 lg:p-8 flex items-center justify-between w-full transition-all ease-in-out duration-500 z-50",
+            "p-6 lg:p-8 flex items-center justify-between w-full text-muted-foreground text-opacity-50 top-0 ease-in-out transition-all duration-500 z-50",
             isScrollingDown ? "-translate-y-full" : "translate-y-0",
-            (scrollY > 90 && isHomePage) && "bg-white",
-            isHomePage ? "fixed" : "sticky border-b bg-white"
+            (scrollY > 90 && isHomePage) && "bg-white text-foreground",
+            isHomePage ? "fixed" : "sticky border-b bg-white text-foreground"
         )}>
             <NavSidebar />
             <NavLinks />
@@ -50,8 +50,8 @@ const Navbar = () => {
                     src={Logo}
                     alt="logo"
                     objectFit="contain"
-                    height={30}
-                    width={120}
+                    height={50}
+                    width={150}
                     priority
                 />
             </Link>
@@ -61,7 +61,7 @@ const Navbar = () => {
                     <UserButton />
                     :
                     <Link href="/sign-in">
-                        <User2Icon />
+                        <User2Icon className="hover:text-secondary transition-all"/>
                     </Link>
                 }
             </div>
